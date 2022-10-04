@@ -1,12 +1,15 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+
+const dbConnect = require('./db');
+dbConnect();
+
+const app = express();
 
 const port = process.env.PORT || 3000
 
 app.use(express.static('public'))
 
-const dbConnect = require('./db')
-dbConnect()
+
 const Comment = require('./models/comment')
 
 app.use(express.json())
